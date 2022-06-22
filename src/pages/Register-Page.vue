@@ -86,9 +86,22 @@ export default {
     },
   },
   computed: {
-    // isProcessing() {},
-    // error() {},
+    isProcessing() {
+      console.log(this.$store.user)
+      // return this.$store.state.user.register.isProcessing;
+      return false
+    },
+    error() {
+      console.log(this.$store.user)
+      // 
+      return 'error';
+    },
   },
+  watch:{
+    error(value){
+      alert(value);
+    }
+  }
 };
 </script>
 <style scoped>

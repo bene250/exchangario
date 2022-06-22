@@ -12,7 +12,7 @@ export default {
   actions: {
     async register({ commit }, { email, password }) {
       commit('setRegisterIsProcessing', true);
-      commit('SetError', '');
+      commit('setError', '');
       try {
         const userCredentials = await createUserWithEmailAndPassword(
           getAuth(),
@@ -22,7 +22,7 @@ export default {
 
         return userCredentials.user;
       } catch (err) {
-        commit('SetError', err.message);
+        commit('setError', err.message);
       } finally {
         commit('setRegisterIsProcessing', false);
       }
